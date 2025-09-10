@@ -1,4 +1,3 @@
-// TaskCard.jsx - Displays an individual task
 import React from "react";
 
 const TaskCard = ({ task }) => {
