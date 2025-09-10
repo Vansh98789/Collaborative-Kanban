@@ -1,4 +1,3 @@
-// Column.jsx - A column on the Kanban board for a specific status
 import React from "react";
 import TaskCard from "./TaskCard";
 
