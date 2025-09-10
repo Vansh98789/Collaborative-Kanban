@@ -1,4 +1,3 @@
-// LoginForm.jsx – Handles login UI + link to Register
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -56,7 +55,6 @@ const LoginForm = () => {
         Login
       </button>
 
-      {/* ---- Switch to Register ---- */}
       <Link
         to="/register"
         className="block text-center mt-4 text-blue-600 hover:underline"
