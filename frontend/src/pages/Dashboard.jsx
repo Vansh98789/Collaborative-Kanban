@@ -1,4 +1,3 @@
-// frontend/src/pages/Dashboard.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { io } from "socket.io-client";
@@ -11,7 +10,6 @@ const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
   const [draggedTaskId, setDraggedTaskId] = useState(null);
 
-  /* ───── Fetch tasks once on mount ───── */
   useEffect(() => {
     const fetchTasks = async () => {
       try {
@@ -27,7 +25,6 @@ const Dashboard = () => {
     fetchTasks();
   }, []);
 
-  /* ───── Socket listeners (real‑time sync) ───── */
   useEffect(() => {
     socket.on("taskCreated", (task) => setTasks((p) => [...p, task]));
     socket.on("taskUpdated", (task) =>
@@ -44,7 +41,6 @@ const Dashboard = () => {
     };
   }, []);
 
-  /* ───── Add task ───── */
   const handleAddTask = async (status) => {
     const title = prompt("Enter task title:");
     if (!title) return;
@@ -66,7 +62,6 @@ const Dashboard = () => {
     }
   };
 
-  /* ───── Drag‑and‑drop handlers ───── */
   const handleDragStart = (id) => setDraggedTaskId(id);
 
   const handleDrop = async (newStatus) => {
@@ -83,7 +78,6 @@ const Dashboard = () => {
     setDraggedTaskId(null);
   };
 
-  /* ───── Delete task (Done column) ───── */
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this task?")) return;
     try {
@@ -95,7 +89,6 @@ const Dashboard = () => {
     }
   };
 
-  /* ───── Column renderer ───── */
   const renderColumn = (status) => (
     <div
       key={status}
