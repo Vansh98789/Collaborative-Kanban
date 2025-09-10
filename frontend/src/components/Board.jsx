@@ -1,4 +1,3 @@
-// Board.jsx - Renders the Kanban board with three columns
 import React, { useEffect, useState } from "react";
 import Column from "./Column";
 import socket from "../utils/socket";
